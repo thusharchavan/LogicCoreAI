@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LogicCore AI — AI software, business tools, websites and apps</title>
+<meta name="description" content="LogicCore AI builds AI-powered software, business tools, websites and mobile apps for growing companies.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7fc;--surface:#fff;--ink:#0e1b3d;--muted:#56637f;--line:#dbe3f1;--blue:#2f5bff;--mint:#12b894;--amber:#ffb020;--shadow:0 18px 40px -22px rgba(14,27,61,.35);--r:18px}
+:root[data-theme="dark"]{--bg:#0b1226;--surface:#131d38;--ink:#eaf0ff;--muted:#9aa8c9;--line:#243256;--blue:#6f8cff;--mint:#35d9b4;--shadow:0 18px 40px -22px #000}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;transition:background .3s,color .3s}
+h1,h2,h3{font-family:'Sora',system-ui,sans-serif;line-height:1.12;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+section{padding:84px 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px}
+.lead{color:var(--muted);max-width:60ch;font-size:1.08rem}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:700 1rem 'DM Sans',sans-serif;padding:13px 24px;border-radius:999px;background:var(--blue);color:#fff;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--blue)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font:800 1.2rem 'Sora',sans-serif}
+.logo i{width:30px;height:30px;border-radius:9px;background:conic-gradient(from 200deg,var(--blue),var(--mint),var(--blue));display:grid;place-items:center}
+.logo i::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--bg)}
+nav ul{display:flex;gap:26px;list-style:none;padding:0;align-items:center}
+nav a.l{font-weight:500;color:var(--muted)}nav a.l:hover{color:var(--ink)}
+.icon{background:none;border:1px solid var(--line);color:var(--ink);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem}
+#burger{display:none}
+.hero{padding:70px 0 90px}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);margin-bottom:20px}
+.hero h1 span{display:block;color:var(--blue)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 30px}
+.stats{display:flex;gap:34px;flex-wrap:wrap}
+.stats b{font:800 1.7rem 'Sora',sans-serif;display:block}
+.stats small{color:var(--muted)}
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.demo-top{display:flex;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line);align-items:center}
+.demo-top i{width:11px;height:11px;border-radius:50%;background:var(--line)}
+.demo-top span{margin-left:8px;font-size:.85rem;color:var(--muted)}
+.demo-body{padding:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.chip{border:1.5px solid var(--line);background:transparent;color:var(--ink);padding:8px 14px;border-radius:999px;cursor:pointer;font:500 .92rem 'DM Sans',sans-serif;transition:.2s}
+.chip:hover{border-color:var(--blue)}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.out{min-height:170px;background:var(--bg);border-radius:12px;padding:16px;font-size:.96rem;white-space:pre-wrap}
+.out.run::after{content:"▍";color:var(--mint);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.tag{display:inline-block;font-size:.8rem;font-weight:700;color:var(--mint);margin-bottom:8px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 20px}
+.tab{padding:11px 20px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:700 .98rem 'DM Sans',sans-serif}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.panel{display:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--shadow)}
+.panel.on{display:grid;grid-template-columns:1fr 1fr;gap:30px;animation:in .35s}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.panel ul{padding-left:20px;color:var(--muted)}.panel li{margin:6px 0}
+.panel h3{font-size:1.5rem;margin-bottom:10px}
+.est{background:var(--ink);color:#fff;border-radius:24px;padding:40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+:root[data-theme="dark"] .est{background:#16224a}
+.est .lead{color:#b8c4e4}
+fieldset{border:0;padding:0;margin:0 0 18px}
+legend{font-weight:700;margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{cursor:pointer}
+.opts input{position:absolute;opacity:0}
+.opts span{display:inline-block;padding:9px 15px;border:1.5px solid #3a4a78;border-radius:999px;font-size:.93rem;transition:.2s}
+.opts input:checked+span{background:var(--amber);color:#0e1b3d;border-color:var(--amber);font-weight:700}
+.opts input:focus-visible+span{outline:3px solid #fff}
+.result{background:rgba(255,255,255,.07);border-radius:18px;padding:28px;align-self:start}
+.result .price{font:800 2.5rem 'Sora',sans-serif;color:var(--amber);margin:6px 0}
+.result p{color:#b8c4e4;font-size:.95rem;margin-bottom:16px}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
+.why div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.why h3{font-size:1.15rem;margin-bottom:8px}.why p{color:var(--muted)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-top:12px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";font-size:1.4rem;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:10px}
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--shadow)}
+.f{margin-bottom:16px}
+.f label{display:block;font-weight:700;margin-bottom:6px;font-size:.93rem}
+input[type=text],input[type=email],textarea,select{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:1rem 'DM Sans',sans-serif}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue)}
+textarea{min-height:110px;resize:vertical}
+.err{color:#e5484d;font-size:.84rem;min-height:1.1em;display:block;margin-top:4px}
+.ok{display:none;background:rgba(18,184,148,.14);color:var(--mint);padding:14px;border-radius:12px;margin-top:14px;font-weight:700}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+#top{position:fixed;right:20px;bottom:20px;opacity:0;pointer-events:none;transition:.3s;background:var(--blue);color:#fff;border:0}
+#top.show{opacity:1;pointer-events:auto}
+@media(max-width:860px){
+ .grid2,.est,.panel.on,.why{grid-template-columns:1fr}
+ #burger{display:block}
+ nav ul{position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--bg);padding:20px;border-bottom:1px solid var(--line);display:none;gap:16px}
+ nav ul.open{display:flex}
+ section{padding:60px 0}.est{padding:26px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a href="#home" class="logo" aria-label="LogicCore AI home"><i></i>LogicCore AI</a>
+ <nav aria-label="Main">
+  <ul id="menu">
+   <li><a class="l" href="#services">Services</a></li>
+   <li><a class="l" href="#estimate">Estimate</a></li>
+   <li><a class="l" href="#why">Why us</a></li>
+   <li><a class="l" href="#faq">FAQ</a></li>
+   <li><a class="btn" href="#contact" style="padding:9px 20px">Start a project</a></li>
+   <li><button class="icon" id="theme" aria-label="Switch light or dark theme">🌙</button></li>
+  </ul>
+ </nav>
+ <button class="icon" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap grid2">
+ <div>
+  <h1>Software that thinks for your business.<span>Built by LogicCore AI.</span></h1>
+  <p class="lead">We design and build AI-powered software, business tools, websites and apps that save your team hours every week.</p>
+  <div class="cta"><a class="btn" href="#contact">Start a project</a><a class="btn ghost" href="#estimate">Get a price estimate</a></div>
+  <div class="stats"><div><b data-n="40">0</b><small>projects launched</small></div><div><b data-n="12">0</b><small>industries served</small></div><div><b data-n="98" data-s="%">0</b><small>clients who return</small></div></div>
+ </div>
+ <div class="demo" aria-live="polite">
+  <div class="demo-top"><i></i><i></i><i></i><span>LogicCore assistant — try it</span></div>
+  <div class="demo-body">
+   <strong>Pick a task for the AI to handle:</strong>
+   <div class="chips" id="chips">
+    <button class="chip" aria-pressed="true" data-k="0">Reply to a customer</button>
+    <button class="chip" aria-pressed="false" data-k="1">Sort invoices</button>
+    <button class="chip" aria-pressed="false" data-k="2">Write a product page</button>
+   </div>
+   <div class="out" id="out"></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+ <h2>What we build</h2>
+ <p class="lead">Four services, one team. Pick a tab to see what is included.</p>
+ <div class="tabs" role="tablist" id="tabs"></div>
+ <div id="panels"></div>
+</div></section>
+
+<section id="estimate"><div class="wrap">
+ <div class="est">
+  <div>
+   <h2>Estimate your project</h2>
+   <p class="lead" style="margin-bottom:26px">Choose what you need. The range updates instantly.</p>
+   <fieldset><legend>What are we building?</legend><div class="opts" id="g-type"></div></fieldset>
+   <fieldset><legend>How big is it?</legend><div class="opts" id="g-size"></div></fieldset>
+   <fieldset><legend>Extras</legend><div class="opts" id="g-extra"></div></fieldset>
+  </div>
+  <div class="result">
+   <span class="tag" style="color:var(--amber)">Estimated budget</span>
+   <div class="price" id="price"></div>
+   <p id="time"></p>
+   <a href="#contact" class="btn" id="useEst" style="background:var(--amber);color:#0e1b3d">Request this quote</a>
+  </div>
+ </div>
+</div></section>
+
+<section id="why"><div class="wrap">
+ <h2>Why teams choose LogicCore AI</h2>
+ <div class="why">
+  <div><h3>Practical AI</h3><p>We add AI only where it saves time or money, and we show you the result before you pay for more.</p></div>
+  <div><h3>Fast delivery</h3><p>Most first versions are ready in two to four weeks, with updates shared every week.</p></div>
+  <div><h3>You own everything</h3><p>You get the full source code, the documentation and a handover session with your team.</p></div>
+ </div>
+</div></section>
+
+<section id="faq"><div class="wrap" style="max-width:780px">
+ <h2>Questions we hear often</h2>
+ <details><summary>Do I need technical knowledge to work with you?</summary><p>No. Tell us the problem in plain words and we handle the technical choices.</p></details>
+ <details><summary>How long does a project take?</summary><p>A business website takes about two weeks. AI software and apps usually take four to twelve weeks.</p></details>
+ <details><summary>Can you add AI to software I already have?</summary><p>Yes. We can connect AI features to your current website, app or internal tools.</p></details>
+ <details><summary>Do you offer support after launch?</summary><p>Yes. Every project includes 30 days of free fixes, and monthly support plans are available.</p></details>
+</div></section>
+
+<section id="contact"><div class="wrap grid2">
+ <div>
+  <h2>Tell us what you want to build</h2>
+  <p class="lead">Send a short message. We reply within one business day with next steps.</p>
+ </div>
+ <form id="form" novalidate>
+  <div class="f"><label for="name">Your name</label><input type="text" id="name" autocomplete="name"><span class="err" id="e-name"></span></div>
+  <div class="f"><label for="email">Email</label><input type="email" id="email" autocomplete="email"><span class="err" id="e-email"></span></div>
+  <div class="f"><label for="topic">Service</label><select id="topic"></select></div>
+  <div class="f"><label for="msg">Project details</label><textarea id="msg"></textarea><span class="err" id="e-msg"></span></div>
+  <button class="btn" type="submit">Send message</button>
+  <div class="ok" id="ok" role="status">Your email app is opening with the message ready to send. Thank you!</div>
+ </form>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> LogicCore AI. All rights reserved.</span><span>hello@logiccore.ai</span></div></footer>
+<button class="icon" id="top" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)};
+var CONTACT_EMAIL="hello@logiccore.ai"; /* change to your real email */
+
+/* Theme */
+var root=document.documentElement,tbtn=$("#theme");
+function setTheme(t){root.setAttribute("data-theme",t);tbtn.textContent=t==="dark"?"☀️":"🌙";try{localStorage.setItem("lc-theme",t)}catch(e){}}
+var saved=null;try{saved=localStorage.getItem("lc-theme")}catch(e){}
+setTheme(saved||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+tbtn.onclick=function(){setTheme(root.getAttribute("data-theme")==="dark"?"light":"dark")};
+
+/* Mobile menu */
+var burger=$("#burger"),menu=$("#menu");
+burger.onclick=function(){var o=menu.classList.toggle("open");burger.setAttribute("aria-expanded",o)};
+menu.addEventListener("click",function(e){if(e.target.tagName==="A"){menu.classList.remove("open");burger.setAttribute("aria-expanded","false")}});
+
+/* Hero demo */
+var demos=[
+ {t:"Customer: \"My order hasn't arrived yet.\"\n\nAI draft: Hi Sara, I'm sorry for the wait. Your order left our warehouse on Monday and is due tomorrow. Here is your tracking link. If it doesn't arrive by 6 PM, reply here and we'll send a replacement.",l:"Reply ready in 3 seconds"},
+ {t:"Reading 48 invoices...\n\n✓ 45 matched to purchase orders\n✓ 2 sent to finance for review (amount differs)\n✓ 1 flagged as a duplicate\n\nTotal to pay this week: $18,420",l:"Saved about 3 hours"},
+ {t:"Product: Handmade Leather Backpack\n\nCarry your day in style. Full-grain leather, a padded laptop sleeve and a lifetime stitching guarantee. Made to age beautifully and built to last for years.",l:"Page copy written in 5 seconds"}
+],out=$("#out"),timer=null,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function run(k){
+ clearInterval(timer);var d=demos[k],i=0;out.textContent="";
+ if(reduce){out.textContent=d.t+"\n\n"+d.l;return}
+ out.classList.add("run");
+ timer=setInterval(function(){i+=2;out.textContent=d.t.slice(0,i);
+  if(i>=d.t.length){clearInterval(timer);out.classList.remove("run");out.textContent=d.t+"\n\n"+d.l}},16);
+}
+$("#chips").addEventListener("click",function(e){
+ var b=e.target.closest(".chip");if(!b)return;
+ document.querySelectorAll(".chip").forEach(function(c){c.setAttribute("aria-pressed",c===b)});
+ run(+b.dataset.k);
+});
+run(0);
+
+/* Counters */
+function count(el){var n=+el.dataset.n,s=el.dataset.s||"+",c=0,step=Math.max(1,Math.ceil(n/40));
+ var t=setInterval(function(){c=Math.min(n,c+step);el.textContent=c+s;if(c>=n)clearInterval(t)},30)}
+var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);cio.unobserve(e.target)}})});
+document.querySelectorAll("[data-n]").forEach(function(el){cio.observe(el)});
+
+/* Services */
+var services=[
+ {n:"AI software",d:"Custom AI that reads, writes, predicts and decides for your business.",l:["Chatbots trained on your own documents","Smart search and document reading","Forecasting and recommendations","Safe integration with your data"]},
+ {n:"Business tools",d:"Internal tools that replace spreadsheets and repeated manual work.",l:["Dashboards and reports","Invoice, order and stock tracking","Team approval workflows","CRM and customer follow-up"]},
+ {n:"Websites",d:"Fast, clear websites that turn visitors into customers.",l:["Business and portfolio websites","Online stores","Search engine friendly pages","Mobile-first design"]},
+ {n:"Apps",d:"Mobile and web apps your customers will enjoy using.",l:["Android, iOS and web apps","User accounts and payments","Notifications and live updates","Store publishing help"]}
+],tabs=$("#tabs"),panels=$("#panels"),topic=$("#topic");
+services.forEach(function(s,i){
+ var b=document.createElement("button");b.className="tab";b.role="tab";b.id="t"+i;b.textContent=s.n;b.setAttribute("aria-selected",i===0);b.setAttribute("aria-controls","p"+i);tabs.appendChild(b);
+ var p=document.createElement("div");p.className="panel"+(i===0?" on":"");p.id="p"+i;p.setAttribute("role","tabpanel");p.setAttribute("aria-labelledby","t"+i);
+ p.innerHTML="<div><h3>"+s.n+"</h3><p class=\"lead\">"+s.d+"</p></div><ul>"+s.l.map(function(x){return"<li>"+x+"</li>"}).join("")+"</ul>";
+ panels.appendChild(p);
+ topic.appendChild(new Option(s.n,s.n));
+ b.onclick=function(){
+  tabs.querySelectorAll(".tab").forEach(function(t,j){t.setAttribute("aria-selected",j===i);panels.children[j].classList.toggle("on",j===i)});
+ };
+});
+topic.appendChild(new Option("Something else","Something else"));
+
+/* Estimator */
+var types=[["AI software",9000],["Business tool",6000],["Website",2500],["Mobile app",12000]],
+ sizes=[["Small",1],["Medium",1.8],["Large",3]],
+ extras=[["AI chatbot",2500],["Payments",1500],["Admin dashboard",2000],["Monthly support",1000]];
+function radios(id,list,name){
+ $(id).innerHTML=list.map(function(x,i){return"<label><input type=\"radio\" name=\""+name+"\" value=\""+i+"\""+(i===0?" checked":"")+"><span>"+x[0]+"</span></label>"}).join("");
+}
+radios("#g-type",types,"type");radios("#g-size",sizes,"size");
+$("#g-extra").innerHTML=extras.map(function(x,i){return"<label><input type=\"checkbox\" value=\""+i+"\"><span>"+x[0]+"</span></label>"}).join("");
+function money2(n){return"$"+(Math.round(n/100)*100).toLocaleString("en-US")}
+function estimate(){
+ var t=types[+document.querySelector("input[name=type]:checked").value],
+  s=sizes[+document.querySelector("input[name=size]:checked").value],
+  ex=0,names=[];
+ document.querySelectorAll("#g-extra input:checked").forEach(function(c){ex+=extras[+c.value][1];names.push(extras[+c.value][0])});
+ var base=t[1]*s[1]+ex,lo=base*.85,hi=base*1.2,wk=Math.round((t[1]>=9000?4:2)*s[1]+names.length);
+ $("#price").textContent=money2(lo)+" – "+money2(hi);
+ $("#time").textContent="Estimated time: about "+wk+" weeks. This is a starting range, and the final quote depends on your details.";
+ estimate.text="Estimate: "+t[0]+", "+s[0].toLowerCase()+" size"+(names.length?", extras: "+names.join(", "):"")+" ("+money2(lo)+" – "+money2(hi)+").";
+}
+document.querySelectorAll("#estimate input").forEach(function(i){i.addEventListener("change",estimate)});
+estimate();
+$("#useEst").addEventListener("click",function(){var m=$("#msg");if(!m.value.trim())m.value=estimate.text+"\n
